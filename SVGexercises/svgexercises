@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVG Exercises</title>
+</head>
+<body>
+    <svg width="200" height="200" style="border:1px solid black;">
+        <rect x="40" y="40" width="100" height="100" fill="blue">
+          
+    </svg>
+    <svg width="200" height="200" style="border:1px solid black;">
+        <circle cx="90" cy="90" r="50" fill="pink">
+      
+    </svg>
+    <svg width="200" height="200" style="border:1px solid black;">
+        <ellipse cx="90" cy="100" rx="80" ry="50" fill="pink">
+      </svg>
+
+      <svg width="200" height="200" style="border:1px solid black;">
+        <polygon points="80,10 150,80 90,150 20,80" style="fill:yellow;stroke:black;stroke-width:2px;opacity:0.5">
+      </svg>
+      <svg width="300" height="300" style="border:1px solid black;">
+        <polygon points="100,10 50,150 175,50, 20,60 150,150"
+        style="fill:green;stroke:black;stroke-width:5px;fill-rule:evenodd;opacity: 0.5;">
+
+      </svg>
+
+      <svg width="300" height="300" style="border:1px solid black;">
+        <polyline points="40,40 80,40 80,80 120,80 120,120 160,120 160,160 40,40" style="fill:none; stroke:green;stroke-width:10">
+      </svg>
+
+      <svg width="300" height="300" style="border:1px solid black;">
+        <ellipse  cx="110" cy="100" rx="105" ry="95" style="fill:green"/>
+            <ellipse  cx="110" cy="100" rx="105" ry="40" style="fill:blue"/>
+                 <circle cx="105" cy="100" r="30" 
+                stroke="green" stroke-width="4" fill="black" />
+      </svg>
+
+      <svg width="300" height="300" style="border:1px solid black;">
+        <rect x="40" y="90" width="150" height="150" style="fill:pink;stroke:black;stroke-width:5"/>
+        <rect x="90" y="190" width="50" height="50" style="fill:orangered;stroke:black;stroke-width:5"/>
+        <polygon points="40,90 110,20 190,90" style="fill:green;stroke:black;stroke-width:5"/>
+        <line x1="110" y1="20" x2="110" y2="10" style="fill:black;stroke:black;"/>
+        
+      </svg>
+
+</body>
+</html>
