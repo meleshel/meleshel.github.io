@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text with HTML DOM</title>
+  </head>
+  <body>
+    <!-- . Change Text of Div,P,textInput,link  -->
+
+    <div id="myDiv">Lorem ipsum dolor sit amet consectetur adipisicing.</div>
+    <p id="myParagraph">This is a new paragraph.</p>
+    <input type="text" id="myInput" value="Any value" />
+    <a id="myLink" href="https://amazon.com">Visit Amazon</a>
+
+    <script>
+      let div = document.getElementById("myDiv");
+      div.textContent = "New text for the div";
+
+      let para = document.getElementById("myParagraph");
+      para.textContent = "New text for the paragraph";
+
+      let input = document.getElementById("myInput");
+      input.value = "New input value";
+
+      let link = document.getElementById("myLink");
+      link.textContent = "Visit Google";
+      link.href = "https://www.google.com";
+    </script>
+  </body>
+</html>
