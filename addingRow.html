@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Table</title>
+    <script>
+
+        function clicking(){
+                  //select the table
+      let tableElement = document.querySelector("table");
+      console.log("abbbb",tableElement);
+
+      // create a row
+      let newRow = document.createElement("tr");
+      console.log(newRow);
+      // create two table cell elements
+      let newtd = document.createElement("td");
+
+      newtd.innerHTML = "three";
+      console.log(newtd);
+
+      let newtd2 = document.createElement("td");
+      newtd2.innerHTML = "four";
+      console.log(newtd2);
+
+      //append tds to new row
+      newRow.appendChild(newtd);
+      newRow.appendChild(newtd2);
+
+      // apppend the row to the table
+
+      tableElement.appendChild(newRow);
+
+        }
+
+    </script>
+
+  </head>
+  <body>
+
+    <table>
+      <tr>
+        <td>One</td>
+        <td>Two</td>
+      </tr>
+    </table>
+    <button onclick="clicking()">click me</button>
+  </body>
+
+</html>
