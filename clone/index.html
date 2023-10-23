@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      window.onload = function () {
+        let cars = ["car1", "car2", "car3"];
+
+        for (let car of cars) {
+          let label = document.createElement("label");
+          let inputE = document.createElement("input");
+
+          label.innerHTML = car;
+          inputE.setAttribute("type", "checkbox");
+          document.body.append(label);
+          document.body.append(inputE);
+        }
+        let br = document.createElement("br");
+        document.body.append(br);
+        // using radio buttons
+        for (let car of cars) {
+          let radio = document.createElement("label");
+          let input = document.createElement("input");
+
+          radio.innerHTML = car;
+          input.setAttribute("type", "radio");
+
+          document.body.append(radio);
+          document.body.append(input);
+        }
+        let br2 = document.createElement("br");
+        document.body.append(br2);
+
+        // using options
+        let option = document.createElement("select");
+        for (let car of cars) {
+          let input = document.createElement("option");
+
+          input.innerHTML = car;
+
+          option.append(input);
+        }
+        document.body.append(option);
+      };
+    </script>
+  </head>
+
+  <body></body>
+</html>
