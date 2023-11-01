@@ -197,3 +197,20 @@ function testPrime(num){
   return true;
 }
 console.log("true",testPrime(7));
+
+//new
+let ages = 10;
+
+console.log(ages);
+
+function output() {
+
+  let ages = 20;
+
+  console.log(ages);
+
+}
+
+output();
+
+console.log("age is" + ages);
