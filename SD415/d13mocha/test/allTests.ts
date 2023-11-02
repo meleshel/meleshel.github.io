@@ -1,3 +1,4 @@
+
 import { assert } from "chai";
 /* import from functions.ts module-- note the .js extension (even though actual file is .ts */
 
@@ -10,8 +11,9 @@ import {calcDistance} from "../src/calcDistance.js";
 //for calculating distance
 
 describe("calculate distance", function () {
-    it("the distance between the coordinates is:", function () {
-    assert.equal(calcDistance(0,0,5,5), 7.07);
+    it("the distance from(0,0) to (5,5):", function () {
+        let dist=calcDistance(0,0,5,5);
+    assert.equal(+dist.toFixed(2), 7.07);
     });
 });
 
@@ -25,13 +27,15 @@ import {convertFahrenheit} from "../src/convertFahrenheit.js";
         assert.equal(convertFahrenheit(32), 0);
         });
         it("convert 0 to fahrenheight", function () {
-        assert.equal(convertFahrenheit(0), -17.7778);
+        assert.equal(convertFahrenheit(50), 10);
         });
         it("convert 212 to fahrenheight", function () {
-        assert.equal(convertFahrenheit(212), 100);
+        assert.equal(convertFahrenheit(-40), -40);
         });
+
         it("convert 100 to fahrenheight", function () {
-        assert.equal(convertFahrenheit(100), 37.7778);
+            let temp=convertFahrenheit(100)
+        assert.equal(+temp.toFixed(2), 37.78);
         }); 
     });
 
@@ -62,13 +66,13 @@ import {multiDigits} from "../src/multiDigits.js";
 
 describe("multiply digits", function () {
     it("product of digits 1234", function () {
-    assert.equal(convertFahrenheit(1234), 24);
+    assert.equal(multiDigits(1234), 24);
     });
     it("product of digits 102", function () {
-    assert.equal(convertFahrenheit(102), 0);
+    assert.equal(multiDigits(102), 0);
     });
     it("product of digits 8", function () {
-    assert.equal(convertFahrenheit(8), 8);
+    assert.equal(multiDigits(8), 8);
     });
      
 });
@@ -150,14 +154,17 @@ describe("isVowel", function () {
     assert.strictEqual(computeSalesCommission(false, 3500), 100);
     });
    });
+
     //for computing compound interest
 
      describe("compoundInterest", function () {
     it("the compound interest of the values(100,10,1)", function () {
-    assert.equal(compoundInterest(100,10,1), 110.47);
+        const inter=compoundInterest(100,0.10,1);
+    assert.strictEqual(+inter.toFixed(2), 110.47);
     });
     it("the compound interest of the values(10000,5,10)", function () {
-    assert.equal(compoundInterest(10000,5,10), 16470.09);
+        const inter=compoundInterest(200,0.15,2);
+    assert.strictEqual(+inter.toFixed(2), 269.47);
     });
   });
 
