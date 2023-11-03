@@ -34,12 +34,36 @@ function findAverage(scoresArray:number[]):number{
 console.log("average is" , findAverage(scores));
 //n.o 3
 
-
-
-
 let array19=[1,2,3,4,5,6,7,8,9];
 
 console.log("Average of the array2 " , (array19));
+
+
+//using multidimensional arrays
+
+/**• Write a function that accepts a two-dimensional array of numbers and returns the sum of all 
+the elements in the array.
+• How many loops do you need?
+• Inner loop?
+• Try with indices and also for..of
+const matrix = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
+function sumMatrix(arr: number[][]) {
+//implement this
+}
+console.log("expect 45: ", sumMatrix(matrix)); */
+
+const matrix = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
+
+function sumMatrix(arr:number[][]):number{
+  let total=0;
+for(const row of arr){
+  for(const num of row){
+    total+=num;
+  }
+}
+return total;
+}
+console.log(sumMatrix(matrix));
 
 
 
