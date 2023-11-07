@@ -26,7 +26,7 @@ scores[3]=40;
 scores[4]=50;
 
 //n.o 2
-function findAverage(scoresArray:number[]):number{
+export function findAverage(scoresArray:number[]):number{
   let total =0;
   for(let i=0;i<scoresArray.length;i++){
     total=total+scoresArray[i];
@@ -56,7 +56,7 @@ console.log("expect 45: ", sumMatrix(matrix)); */
 
 const matrix = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ];
 
-function sumMatrix(arr:number[][]):number{
+export function sumMatrix(arr:number[][]):number{
   let total=0;
 for(const row of arr){
   for(const num of row){
@@ -108,7 +108,7 @@ for (let fruit of manyFruits) {
 largest of them. For this and all following exercises be sure to include the required 
 argument types and function return types. */
 
-  function maxOfThree(num1:number,num2:number,num3:number):number{
+  export function maxOfThree(num1:number,num2:number,num3:number):number{
       if(num1>num2){
         return num1;
       }
@@ -127,7 +127,7 @@ all the numbers in an array of numbers. For example, sum([1,2,3,4]) should retur
 multiply([1,2,3,4]) should return 24.  */
 
 
-  function sum(numbers:number[]):number{
+export function sum(numbers:number[]):number{
         let sum=0;
         for(let i=0;i<numbers.length;i++){
           sum+=numbers[i];
@@ -135,7 +135,7 @@ multiply([1,2,3,4]) should return 24.  */
         return sum;
   } 
   console.log("the sum of numbers is:",sum([1,2,3,4]));
-  function multiply(numbers:number[]):number{
+  export function multiply(numbers:number[]):number{
         let product=1;
         for(let i=0;i<numbers.length;i++){
           product*=numbers[i];
@@ -146,7 +146,7 @@ multiply([1,2,3,4]) should return 24.  */
 
     /**4.Write a function findLongestWord() that takes an array of words and returns the length of 
 the longest one */
-    function findLongestWord(words:string[]):number{
+export function findLongestWord(words:string[]):number{
      
         for(let i=0;i<words.length;i++){
           if(words[i].length>words[0].length){
@@ -171,7 +171,7 @@ the longest one */
         console.log(arrayValue); 
         // → [5, 4, 3, 2, 1] */
 
-        function reverseArray(arr:string[]):string[]{
+        export function reverseArray(arr:string[]):string[]{
             let newArr=[];
             for(let i=arr.length-1;i>=0;i--){
               newArr.push(arr[i]);
@@ -190,7 +190,7 @@ the longest one */
         console.log(arrayValue); 
         // → [5, 4, 3, 2, 1]*/
 
-        function reverseArrayInPlace(numbers:number[]):number[]{
+        export function reverseArrayInPlace(numbers:number[]):number[]{
         
                 for(let i=numbers.length-1;i>=0;i--){
                   numbers.push(numbers[i]);
@@ -233,7 +233,7 @@ the longest one */
                         console.log("expect [ [1, 2, 3], [4, 5, 6]]: ", generateArray(2,3));
                         console.log("expect [ [1], [2]]: ", generateArray(2, 1)); */
 
-                        function generateArray(input1: number, input2: number): number[][] {
+                        export function generateArray(input1: number, input2: number): number[][] {
                           let newArray: number[][] = [];
                           let counter = 1;
                         
@@ -311,60 +311,60 @@ the longest one */
                       // Write a function named somethingOdd that takes an array of numbers as input and 
                       // returns the product of all the array values at the odd indices.
 
-                      function somethingOdd(arr:number[]):number{
-                             let product=1;
-                             for(let i=1;i<arr.length;i=i+2){
-                              // if(i%2==0){
-                                product=product*arr[i];
+                //       function somethingOdd(arr:number[]):number{
+                //              let product=1;
+                //              for(let i=1;i<arr.length;i=i+2){
+                //               // if(i%2==0){
+                //                 product=product*arr[i];
                               
-                                console.log(arr[i]);
+                //                 console.log(arr[i]);
             
-                             }
-                             return product;
-                      }
-                      console.log("product of something odd is:", somethingOdd([1,2,3,4,5,6,7,8]));
+                //              }
+                //              return product;
+                //       }
+                //       console.log("product of something odd is:", somethingOdd([1,2,3,4,5,6,7,8]));
                       
-                        //write a mocha unit test with 2 “it” calls for the following function.
-                      // function mult(x, y, z) {return x * y * z);
+                //         //write a mocha unit test with 2 “it” calls for the following function.
+                //       // function mult(x, y, z) {return x * y * z);
 
-                    //   describe("multiply function",function() {
-                    //     it("multiply 2*3*5",function()
-                    //     assert.equal(mult(2,3,5),30));
-                    //   )};
+                //     //   describe("multiply function",function() {
+                //     //     it("multiply 2*3*5",function()
+                //     //     assert.equal(mult(2,3,5),30));
+                //     //   )};
 
-                    //     it("multiply 5*6*2",function()
-                    //     assert.equal(mult(5,6,2),60));
-                    //   })
-                    // });
+                //     //     it("multiply 5*6*2",function()
+                //     //     assert.equal(mult(5,6,2),60));
+                //     //   })
+                //     // });
 
 
-                    function showElement(arr: string[]): number {
-                      for (let i = 0; i < arr.length; i++) {
-                        console.log(arr[i]);
-                      }
-                      return arr.length;
-                    }
+                //     function showElement(arr: string[]): number {
+                //       for (let i = 0; i < arr.length; i++) {
+                //         console.log(arr[i]);
+                //       }
+                //       return arr.length;
+                //     }
                     
-                    cons newarray= ["l", "m", "n"];
-                    console.log("The elements are:",showElement(newArray));
+                //     cons newarray= ["l", "m", "n"];
+                //     console.log("The elements are:",showElement(newArray));
 
 
                    
-                //using for each loop
+                // //using for each loop
 
-                    const newArr = ["l", "m", "n"];
-                function showElements(arr: string[]): number {
-                  let count = 0;
-                  for (const element of arr) {
-                    console.log(element);
-                    count++;
-                  }
-                  return count;
-                }
+                //     const newArr = ["l", "m", "n"];
+                // function showElements(arr: string[]): number {
+                //   let count = 0;
+                //   for (const element of arr) {
+                //     console.log(element);
+                //     count++;
+                //   }
+                //   return count;
+                // }
                 
-                const newArray = ["l", "m", "n"];
+                // const newArray = ["l", "m", "n"];
                 
-                console.log("Number of elements:", showElements(newArray));
+                // console.log("Number of elements:", showElements(newArray));
                 
                 
 
