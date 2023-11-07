@@ -165,15 +165,16 @@
 // console.log("expect 7.07 : ", calcDistance (0, 0, 5, 5));
 
 //demo code- for debugging 
-function compoundInterests(deposit: number, rate: number, years: number) {
-  const monthlyRate = rate / 12 / 100;
-  const numPayments = years * 12; 
-  let balance = deposit;
-  for (let i = 1; i <= numPayments; i--) {
-  balance = balance + balance * monthlyRate;
- // debugger;
-  }
-  return balance;
- }
- console.log("expect 110.47", compoundInterests(100, 10, 1));
- console.log("expect 16470.09", compoundInterests(10000, 5, 10));
+// function compoundInterests(deposit: number, rate: number, years: number) {
+//   const monthlyRate = rate / 12 / 100;
+//   const numPayments = years * 12; 
+//   let balance = deposit;
+//   for (let i = 1; i <= numPayments; i--) {
+//   balance = balance + balance * monthlyRate;
+//  // debugger;
+//   }
+//   return balance;
+//  }
+//  console.log("expect 110.47", compoundInterests(100, 10, 1));
+//  console.log("expect 16470.09", compoundInterests(10000, 5, 10));
+
