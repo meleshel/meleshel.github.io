@@ -494,7 +494,7 @@ type Person = {
 
   //  for(const i in numbers){
   //   console.log(numbers[i]);
-}
+
   //  for(const property of propertyOrder){
   //   console.log(numbers[property]);
   //  }
