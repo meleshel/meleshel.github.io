@@ -69,10 +69,8 @@ export const bank:Bank = {
                 this.transactionsDB.push({customerId:id,customerTransactions:[amount]});
             }
         },
-        bankBalance:function (){
-            return this.transactionsDB.reduce(function (totalBalance,customer){
-                return totalBalance + this.getBalance(customer.customerId);
-            },0);
+        bankBalance: function (){
+            return this.transactionsDB.reduce((totalBalance,customer)=> totalBalance + this.getBalance(customer.customerId),0);
         },
    
 } ;  //define bank object as type Bank
