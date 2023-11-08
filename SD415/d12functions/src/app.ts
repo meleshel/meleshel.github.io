@@ -443,6 +443,33 @@
 //  a = {x : 6};
 // console.log(a);
 
+// in class exercise
+
+type Person = {
+  name: string;
+  age: number;
+  job: string;
+  sayHi(this: Person): void;
+  }
+ const manager: Person = {
+  name: "John",
+  age: 27,
+  job: "Software Engineer",
+  sayHi: sayHowdy
+  };
+  const intern: Person= {
+  name: "Ben",
+  age: 21,
+  job: "Software Engineer Intern",
+  sayHi: sayHowdy
+  };
+  
+ function sayHowdy(this: Person) {
+ console.log("Hello, my name is ", this.name);
+  }
+  manager.sayHi();//Hello, my name is John. I am 27.
+  intern.sayHi();  //Hello, my name is Ben
+
 
 
 
