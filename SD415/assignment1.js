@@ -404,7 +404,205 @@
               }
               let array1=[-10, 10, 20, -20, -10, 30];
               console.log(negative(array1));
+
+                type Person ={
+                  name:string,
+                  points:number[]
+                }
+
+              /**const player1 = 
+                    {name: "Bob", points: [1, 2, 1]};
+                  const player2 = {name: "Andre", points: [2, 0, 1]};
+                  const player3 = {name: "Max", points: [1, 1, 1]};
+
+                  const players = [player1, player2, player3];
+
+                  console.log("expect 10: ", sumPoints(players)); */
+
+            //this is for javascript
+
+                  // function sumPoints(players){
+                  //       let sum=0;
+                  //       for(let player of players){
+                  //         for(let point of player.points){
+                  //            sum+=point;
+                  //         }
+                           
+                  //       }
+                  //       return sum;
+                  // }
+
+
+                  //in typescript:
+
+                //   type Person ={
+                //     name:string,
+                //     points:number[]
+                //   }
+  
+                // const player1 = 
+                //       {name: "Bob", points: [1, 2, 1]};
+                //     const player2 = {name: "Andre", points: [2, 0, 1]};
+                //     const player3 = {name: "Max", points: [1, 1, 1]};
+  
+                //     const players = [player1, player2, player3];
+  
+                //     console.log("expect 10: ", sumPoints(players));
+  
               
+                //     function sumPoints(players:Person[]):number{
+                //           let sum=0;
+                //           for(let player of players){
+                //             for(let point of player.points){
+                //                sum+=point;
+                //             }
+                             
+                //           }
+                //           return sum;
+                //     }
+                //     console.log(sumPoints(players));
+
+
+
+
+//                   /**/* write a function findProps to return an array of all the properties in any given object */
+// console.log("expect [a, b, c]: ", findProps({a: 1, b: 2, c: 3})); */
+
+
+
+//in javascript
+    //   type Property={
+    //     name:string,
+    //     age:number,
+    //   }
+                
+    // function findProps(obj:Property):string[]{
+    //   const result=[];
+    //             for(let key in  obj){
+    //               result.push(key);
+    //             }
+    //             return result;
+    //     }
+
+
+    //in typescript
+
+
+  //   type Property={
+  //     a:number,
+  //     b:number,
+  //     c:number,
+  //   }
+              
+  // function findProps(obj:Property):string[]{
+  //   const result=[];
+  //             for(let key in  obj){
+  //               result.push(key);
+  //             }
+  //             return result;
+  //     }
+  //     console.log("expect [a, b, c]: ", findProps({a: 1, b: 2, c: 3}));
+
+        const bar=""+foo;
+        console.log(bar);
+
+
+console.log( 0.666667.toFixed(4) == (2 / 3).toFixed(4) ); // true?
+console.log( 0.6666666666666667 === 2 / 3 ); // true
+
+
+/*Use slice and trim to generate the following:
+Slice is cool!
+lice is cool!
+ice is cool!
+ce is cool!
+e is cool!
+is cool!
+is cool!
+s cool!
+cool!
+cool!
+ool
+!
+ol
+!
+l!!*/
+
+
+  // let str="Slice is cool!";
+  // let new="";
+  // for(let i=0;i<str.length;i++){
+   
+  // }
+
+  //correct answer:
+
+  // for(let x = 0;x < slices.length;x++){
+//     console.log(slices.slice(x))
+// }
+
+  /*use forEach to log all the even elements of an array to the 
+  console 
+  [1,5,16,3, 108]*/
+
+
+
+  //this is in javascript
+//   function isEven(num){
+
+//   if(num%2===0){
+//     console.log(num);
+//   }
+
+// }
+
+//   [1,5,16,3, 108].forEach(isEven);
+
+
+//this is in typescript
+
+
+
+      // [1,5,16,3, 108].forEach(function(num:number):void{
+      //   if(num%2===0){
+      //     console.log("even numbers are:",num);
+      //   }
+
+      // });
+
+            /** use slice and splice to implement the replaceInterior function
+           const arr = [1, 2, 3, 4, 5];
+          const result = replaceInterior(arr, 999);
+          console.log("expect [1, 999, 5]: ", result);
+          const result2 = replaceInterior(arr, 1234);
+          console.log("expect [1, 1234, 5]: ", result2);
+          console.log("expect [1, 2, 3, 4, 5]: ", arr); */
+
+
+          function replaceInterior(arr,num){
+
+                  return arr.splice(1,arr.length-2,num);
+
+          }
+
+                        /** const numbers = [1, 5, 18, 2, 77, 108];
+              ➢ use filter, find, and findIndex to find
+              ➢ all the even numbers
+              ➢ the first even number
+              ➢ the index of the first even number
+              */
+   
+
+
+              const numbers=[1,5,18,2,77,108];
+              console.log("expect [18,2,108]:", numbers.find(num=>num%2==0));
+
+              console.log("expect 18:" , numbers.filter(num=>num%2===0));
+              console.log("expect 18:" , numbers.findIndex(num=>num%2===0));
+
+
+              let baz = "" + 33 + 10;
+              console.log(baz === 43);
 
 
 

@@ -35,12 +35,12 @@ export function myMap( arr:number[], fun:(num:number)=>number):number[]{
 }
  export let inputArr = [1,2,3,4,5]
  export let inputArr2 = [11,12,13]
-let doubleArr= myMap(inputArr, double)
-console.log(doubleArr)
+  let doubleArr= myMap(inputArr, double)
+  console.log(doubleArr)
 
 
-let times100Arr = myMap(inputArr, times100);
-console.log(times100Arr)
+  let times100Arr = myMap(inputArr, times100);
+  console.log(times100Arr)
 
 // q4.  Demonstrate your myMap function with an anonymous function that
 // triples the input value. Write this as an anonymous function expression. Then write it using an
