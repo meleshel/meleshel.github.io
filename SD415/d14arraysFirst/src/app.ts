@@ -108,19 +108,31 @@ for (let fruit of manyFruits) {
 largest of them. For this and all following exercises be sure to include the required 
 argument types and function return types. */
 
-  export function maxOfThree(num1:number,num2:number,num3:number):number{
-      if(num1>num2){
-        return num1;
-      }
-      if(num2>num3){
-        return num2;
-      }
-      else{
-        return num3;
-      }
 
+export function maxOfThree(num1: number, num2: number, num3: number): number {
+  let maxNum = num1;
+  if (maxNum < num2) {
+    maxNum = num2;
   }
-  console.log("the maximum of the three numbers is:", maxOfThree(3,4,5));
+  if (maxNum < num3) {
+    maxNum = num3;
+  }
+  return maxNum; 
+}
+
+  // export function maxOfThree(num1:number,num2:number,num3:number):number{
+  //     if(num1>num2){
+  //       return num1;
+  //     }
+  //     if(num2>num3){
+  //       return num2;
+  //     }
+  //     else{
+  //       return num3;
+  //     }
+
+  // }
+  // console.log("the maximum of the three numbers is:", maxOfThree(3,4,5));
 
   /** 3. Define a function sum() and a function multiply() that sums and multiplies (respectively) 
 all the numbers in an array of numbers. For example, sum([1,2,3,4]) should return 10, and 
