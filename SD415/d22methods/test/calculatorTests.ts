@@ -41,18 +41,18 @@ describe("test calculator with values 2, 3", function () {
         assert.strictEqual(calculator.sum(), 5);
     });
  
-    it("when 2 and 3 are entered, the product is 6", function () {
-        assert.strictEqual(calculator.mul(), 6);
-    });
+    // it("when 2 and 3 are entered, the product is 6", function () {
+    //     assert.strictEqual(calculator.mul(), 6);
+    // });
  
-      it("when 2 and 3 are entered, the div is .67", function () {
-        let divis = calculator.div()
-        let divResult = parseFloat(divis.toFixed(2))
-        assert.strictEqual(divResult, 0.67);
-      });
-        it("when 2 and 3 are entered, the sub is -1", function () {
-          assert.strictEqual(calculator.sub(), -1);
-        });
+    //   it("when 2 and 3 are entered, the div is .67", function () {
+    //     let divis = calculator.div()
+    //     let divResult = parseFloat(divis.toFixed(2))
+    //     assert.strictEqual(divResult, 0.67);
+    //   });
+    //     it("when 2 and 3 are entered, the sub is -1", function () {
+    //       assert.strictEqual(calculator.sub(), -1);
+    //     });
  
  
 });

@@ -14,6 +14,7 @@ const student3 = {
 const classQuiz1 = [student1, student2, student3];
 classQuiz1;
 console.log("expect 3: ", computeStudentScore(student1, [3, 1, 2, 4]));
+
 function computeStudentScore(stu, quizKey) {
     /* get the student answers */
     const answers = stu.quizAnswers;
