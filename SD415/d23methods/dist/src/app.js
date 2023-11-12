@@ -38,15 +38,17 @@ export function truncate(str, maxlength) {
  * @returns {number} the total of the maximal subarray
  
  */
-export function getMaxSubSum(arr) {
-    let maxSum = 0;
-    let currentSum = 0;
-    for (let num of arr) {
-        currentSum = Math.max(0, currentSum + num);
-        maxSum = Math.max(maxSum, currentSum);
-    }
-    return maxSum;
-}
+
+// export function getMaxSubSum(arr) {
+//     let maxSum = 0;
+//     let currentSum = 0;
+//     for (let num of arr) {
+//         currentSum = Math.max(0, currentSum + num);
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
+//     return maxSum;
+// }
+
 export function camelize(str) {
     return str.replace(/[-_\s]([a-zA-Z])/g, (_, char) => char.toUpperCase());
 }
