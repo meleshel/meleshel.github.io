@@ -1,37 +1,42 @@
-// export type StudentQuiz = {
-//     studentId: number,
-//     quizAnswers: number[]
-// }
-export const studentQuizzes = [];
-export const CORRECT_ANSWERS = [1, 2, 3];
+// export interface StudentQuiz {
+//     id: number;
+//     quizAnswers: number[];
+//   }
 export function gradeStudent(studentAnswers, correct) {
-    let answers = 0;
-    for (let i = 0; i < studentAnswers.length; i++) {
-        if (studentAnswers[i] == correct[i]) {
-            answers++;
+    let correctAnswer = 0;
+    for (let i = 0; i < correct.length; i++) {
+        if (correct[i] === studentAnswers[i]) {
+            correctAnswer++;
         }
     }
-    return answers;
+    return correctAnswer;
 }
-export function gradeQuiz(studentsAnswers, correct) {
-    let result = [];
-    for (let i = 0; i < studentsAnswers.length; i++) {
-        const correctCount = gradeStudent(studentsAnswers[i].quizAnswers, correct);
-        result.push(correctCount);
+export function gradeQuiz(student, score) {
+    let correctAnswers = [];
+    let count = 0;
+    for (let i = 0; i < student.length; i++) {
+        count = 0;
+        for (let j = 0; j < score.length; j++) {
+            if (student[i].quizAnswers[j] === score[j]) {
+                count++;
+            }
+        }
+        correctAnswers.push(count);
     }
-    return result;
+    return correctAnswers;
 }
-//IMPLEMENT THIS
-export function gradeQuizLabeled(students, correct) {
-    const result = [];
-    for (let i = 0; i < students.length; i++) {
-        const correctCount = gradeStudent(students[i].quizAnswers, correct);
-        const stuResult = {
-            id: students[i].id,
-            score: correctCount,
-        };
-        result.push(stuResult);
+export function gradeQuizLabeled(student, score) {
+    let correctAnswers = [];
+    let count = 0;
+    for (let i = 0; i < student.length; i++) {
+        count = 0;
+        for (let j = 0; j < score.length; j++) {
+            if (student[i].quizAnswers[j] === score[j]) {
+                count++;
+            }
+        }
+        let studentScores = { id: student[i].studentId, score: count };
+        correctAnswers.push(studentScores);
     }
-    return result;
+    return correctAnswers;
 }
-//IMPLEMENT THIS

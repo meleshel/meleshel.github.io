@@ -14,7 +14,6 @@ const student3 = {
 const classQuiz1 = [student1, student2, student3];
 classQuiz1;
 console.log("expect 3: ", computeStudentScore(student1, [3, 1, 2, 4]));
-
 function computeStudentScore(stu, quizKey) {
     /* get the student answers */
     const answers = stu.quizAnswers;
@@ -29,6 +28,7 @@ function computeStudentScore(stu, quizKey) {
 }
 student2;
 student3;
+export {};
 /************************************************* */
 // function add(a: number, b: number): number { 
 //     return a + b;
@@ -473,17 +473,17 @@ student1, student2, student3 with the following properties:
 //   }
 //   console.log("expect 3:", computeStudentScore(student1,[3,1,2,4]));
 //part 2: 
-export function gradeQuiz(quizArray, quizKey) {
-    //loop through the students and call the helper to get their score and push into the result
-    const quizScores = [];
-    for (const students of quizArray) {
-        quizScores.push(computeStudentScore(students, quizKey));
-        // const stuScore=computeStudentScore(student,quizKey);
-        // quizScores.push(stuScore);
-    }
-    return quizScores;
-}
-console.log("expect[3,2,3]:", gradeQuiz(quizArray, [3, 1, 2, 4]));
+//   export function gradeQuiz(quizArray:Student[],quizKey:number[]): number [] {
+//     //loop through the students and call the helper to get their score and push into the result
+//     const quizScores:number[]=[];
+//     for(const students of quizArray){
+//         quizScores.push(computeStudentScore(students,quizKey));
+//         // const stuScore=computeStudentScore(student,quizKey);
+//         // quizScores.push(stuScore);
+//     }
+//     return quizScores;
+//   }
+//     console.log("expect[3,2,3]:",gradeQuiz(quizArray,[3,1,2,4]));
 /**2.1 In the src/quiz.ts file, complete the function, quizAnswers that computes and returns the score for a
 single student.
 assert.deepEqual(gradeStudent(student1.quizAnswers, [3, 1, 2, 4]), 3);
