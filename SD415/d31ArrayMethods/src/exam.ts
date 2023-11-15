@@ -42,7 +42,7 @@ return num<0?-num:num;
 console.log(higho(square,[1,2,3,4]));
 console.log(higho(absVal,[1,-2,3,-4]));
 
-  //fitness tracking fucntion
+  //fitness tracking function
 
   //7a
 type Session= {
