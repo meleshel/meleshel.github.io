@@ -13,8 +13,6 @@ describe("exam2 coding", function () {
         assert.deepEqual(firstLast(names), output);
     });
 
-
-
     it("replaceEnds 6124", function () {
         //Use slice and splice to write TypeScript code for the replaceEnds function.  replaceEnds should be a pure function.
         //first two number arguments replace the first and second elements of the array, last two number arguments replace the 
