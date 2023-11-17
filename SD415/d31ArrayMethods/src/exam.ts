@@ -13,6 +13,7 @@ export function firstLast(arr:string[]):Names[]{
   }
   const names = ['Fred', 'Smith', 'Carl','Lindstrom'];
   console.log(firstLast(names));
+  
   //replace ends function
 export function replaceEnds(arr:number[], first:number,first2:number,last:number,last2:number):number[]{
     const newArr = arr.slice();
@@ -96,7 +97,7 @@ type Session= {
   export function getAllDurations(dailyRecord:Day[]):number[]{
     const allSessions=getAllSessions(dailyRecord);
     const allDuration=allSessions.map(session=>session.duration);
+
+
     return allDuration;
   }
-
-

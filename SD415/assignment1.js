@@ -636,6 +636,17 @@
         console.log("Max:", max); // Expect 5
 
 
+              
+        let [firstName, lastName] = "Liya Kantor".split(' ');
+
+        console.log(firstName); // Output: "Liya"
+        console.log(lastName);  // Output: "Kantor"
+        
+        
+     
+
+
+
 
 
 
