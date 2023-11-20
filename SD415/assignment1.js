@@ -643,11 +643,209 @@
         console.log(lastName);  // Output: "Kantor"
         
         
-     
+     //quiz question:const player1 = {jersey: 8, stats: [ {game : 1, points: 6}, {game : 2, points : 7} ] };
+// const player2 = {jersey: 12, stats: [ {game : 1, points: 16}, {game : 2, points : 14} ] };
+// const player3 = {jersey: 6, stats: [ {game : 1, points: 10}, {game : 2, points : 6} ] };
+// const teamStats = [player1, player2, player3];
+
+//Write a function, findHighScores, that finds the high score in the season for each player as follows:
+// console.log("expect [{jersey: 8, high: 7}, {jersey: 12, high: 16}, {jersey: 6, high: 10}]: " , findHighScores(teamStats));
+
+        type GameStats = {
+          game: number;
+          points: number;
+        };
+        
+        type Player = {
+          jersey: number;
+          stats: GameStats[];
+        };
+        
+        type HighScore = {
+          jersey: number;
+          high: number;
+        };
+        
+        function findHighScores(teamStats: Player[]): HighScore[] {
+          const highScores: HighScore[] = [];
+        
+          for (const player of teamStats) {
+            const maxPoints = player.stats.reduce((max, game) => Math.max(max, game.points), 0);
+        
+            highScores.push({ jersey: player.jersey, high: maxPoints });
+          }
+        
+          return highScores;
+        }
+        
+        // Test
+        const player1: Player = { jersey: 8, stats: [{ game: 1, points: 6 }, { game: 2, points: 7 }] };
+        const player2: Player = { jersey: 12, stats: [{ game: 1, points: 16 }, { game: 2, points: 14 }] };
+        const player3: Player = { jersey: 6, stats: [{ game: 1, points: 10 }, { game: 2, points: 6 }] };
+        const teamStats: Player[] = [player1, player2, player3];
+        
+        console.log("Expect [{jersey: 8, high: 7}, {jersey: 12, high: 16}, {jersey: 6, high: 10}]: ", findHighScores(teamStats));
+        
 
 
 
+        let john = { name: "John", surname: "Smith", age: 10 };
+        let pete = { name: "Pete", surname: "Hunt", age: 20 };
+        
+        let people = [ john, pete];
+        
+        // Use the map function to map the people array to the following:
+        [{ fullName: "John Smith", age: 10 },
+        { fullName: "Pete Hunt", age: 20 },]
+        
+        type Person={
+            name:string,
+            surname:string
+            age:number
+        }
+        
+        const mappedPeople=people.map(({name,surname,age})=>({
+            fullName:`${name} ${surname}`,
+            age:age
+        }))
 
 
+        //finding even recursive
+
+        function evenRecursive(num: number): void {
+          if (num >= 0) {
+            if (num % 2 === 0) {
+              console.log(num);
+            }
+            evenRecursive(num - 1);
+          }
+        }
+        evenRecursive(13);
+
+    //write a function, averagePoints, to get an array containing the average points across for each player . Then modify the function to return objects,
+
+    // Try with a regular for..of loop and then using map and reduce.
+    // const player1 = {name: "Bob", points: [1, 2, 1]};
+    // const player2 = {name: "Andre", points: [2, 0, 1]};
+    // const player3 = {name: "Max", points: [1, 1, 1]};
+    // const players = [player1, player2, player3];
+    // console.log("expect [1.33, 1, 1 ]: ", averagePoints (players));
+    // //console.log("expect [{Bob:1.33, Andre:1, Max:1} ]: ", averagePointsLabeled (players));
+    type Player = {
+  name: string;
+  points: number[];
+};
+
+function averagePoints(players: Player[]): number[] {
+  const averages: number[] = [];
+
+  for (const player of players) {
+    let totalPoints = 0;
+
+    for (const points of player.points) {
+      totalPoints += points;
+    }
+
+    const average = totalPoints / player.points.length;
+    averages.push(average);
+  }
+
+  return averages;
+}
+
+// Test
+const player1 = { name: "Bob", points: [1, 2, 1] };
+const player2 = { name: "Andre", points: [2, 0, 1] };
+const player3 = { name: "Max", points: [1, 1, 1] };
+const players = [player1, player2, player3];
+
+console.log("Expect [1.33, 1, 1]:", averagePoints(players));
+
+      //using map and reduce
+
+      type Player = {
+        name: string;
+        points: number[];
+      };
+      
+      function averagePoints(players: Player[]): number[] {
+        const averages: number[] = players.map((player) => {
+          const totalPoints = player.points.reduce((acc, points) => acc + points, 0);
+          return totalPoints / player.points.length;
+        });
+      
+        return averages;
+      }
+      
+      // Test
+      const player1 = { name: "Bob", points: [1, 2, 1] };
+      const player2 = { name: "Andre", points: [2, 0, 1] };
+      const player3 = { name: "Max", points: [1, 1, 1] };
+      const players = [player1, player2, player3];
+      
+      console.log("Expect [1.33, 1, 1]:", averagePoints(players));
 
       
+      // Function to calculate average points and return labeled results using map and reduce
+function averagePointsLabeled(players: Player[]): { [key: string]: number }[] {
+  return players.map((player) => {
+    const totalPoints = player.points.reduce((acc, points) => acc + points, 0);
+    const average = totalPoints / player.points.length;
+    return { [player.name]: average };
+  });
+}
+
+
+type Player = {
+  name: string;
+  points: number[];
+};
+
+function averagePointsLabeled(players: Player[]): { [key: string]: number }[] {
+  const averages: { [key: string]: number }[] = [];
+
+  for (const player of players) {
+    let totalPoints = 0;
+
+    for (const points of player.points) {
+      totalPoints += points;
+    }
+
+    const average = totalPoints / player.points.length;
+    averages.push({ [player.name]: average });
+  }
+
+  return averages;
+}
+
+// Test
+const player1 = { name: "Bob", points: [1, 2, 1] };
+const player2 = { name: "Andre", points: [2, 0, 1] };
+const player3 = { name: "Max", points: [1, 1, 1] };
+const players = [player1, player2, player3];
+
+console.log("Expect [{Bob: 1.33, Andre: 1, Max: 1}]:", averagePointsLabeled(players));
+
+
+type Player = {
+  name: string;
+  points: number[];
+};
+
+function averagePointsLabeled(players: Player[]): { [key: string]: number }[] {
+  return players.map((player) => {
+    const totalPoints = player.points.reduce((acc, points) => acc + points, 0);
+    const average = totalPoints / player.points.length;
+    return { [player.name]: average };
+  });
+}
+
+// Test
+const player1 = { name: "Bob", points: [1, 2, 1] };
+const player2 = { name: "Andre", points: [2, 0, 1] };
+const player3 = { name: "Max", points: [1, 1, 1] };
+const players = [player1, player2, player3];
+
+console.log("Expect [{Bob: 1.33, Andre: 1, Max: 1}]:", averagePointsLabeled(players));
+
+
