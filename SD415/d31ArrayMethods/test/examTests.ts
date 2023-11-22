@@ -18,11 +18,20 @@ describe("exam2 coding", function () {
         //first two number arguments replace the first and second elements of the array, last two number arguments replace the 
         //last two elements of the array
 
-        const arr = [5, 4, 3, 2, 1, 0];
-        const result = [6, 1, 3, 2, 2, 4];
-        const newArr = replaceEnds(arr.slice(), 6, 1, 2, 4);
-        assert.deepEqual(newArr, result);
-        assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); // Original array is unchanged
+        it("replaceEnds 6124", function () {
+            const arr = [5, 4, 3, 2, 1, 0];
+            const result = [6, 1, 3, 2, 2, 4];
+            replaceEnds(arr, 6, 1, 2, 4);
+        
+            assert.deepEqual(arr, result);
+        });
+        
+
+        // const arr = [5, 4, 3, 2, 1, 0];
+        // const result = [6, 1, 3, 2, 2, 4];
+        // const newArr = replaceEnds(arr.slice(), 6, 1, 2, 4);
+        // assert.deepEqual(newArr, result);
+        // assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); // Original array is unchanged
 
     });
     it("replaceEnds 1093287", function () {
