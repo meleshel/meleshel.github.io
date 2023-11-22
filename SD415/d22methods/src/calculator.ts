@@ -1,3 +1,6 @@
+
+
+
 export const calculator = {
   operand1: 0,
   operand2: 0,
@@ -14,6 +17,8 @@ export const calculator = {
   mul() {
     return this.operand1 * this.operand2;
   },
+
+
 // div(){
 //   if(this.operand2===0){
 //   throw new Error( "error")
