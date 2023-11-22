@@ -1,78 +1,78 @@
 
-/**
- * 
- * @param {*} arr 
- * @param {*} func 
- * @returns 
- */
+// /**
+//  * 
+//  * @param {*} arr 
+//  * @param {*} func 
+//  * @returns 
+//  */
 
-export function myMap(arr:number[], func:(num:number)=>number):number[] {
-    //IMPLEMENTATION NEEDED
-    const newArray:number[]=[];
-    for(const num of arr){
-        newArray.push(func(num));
+// export function myMap(arr:number[], func:(num:number)=>number):number[] {
+//     //IMPLEMENTATION NEEDED
+//     const newArray:number[]=[];
+//     for(const num of arr){
+//         newArray.push(func(num));
 
-    }
-    return newArray;
-}
+//     }
+//     return newArray;
+// }
 
-/**
- * 
- * @param {*} arr 
- * @param {*} func 
- * @returns 
- */
+// /**
+//  * 
+//  * @param {*} arr 
+//  * @param {*} func 
+//  * @returns 
+//  */
 
-    function square(num:number):number{
-        return num*num;
+//     function square(num:number):number{
+//         return num*num;
 
-    }
-    export function myFilter(arr:number[], func:(num:number)=>number):number[] {
-    //IMPLEMENTATION NEEDED
-    const newArray:number[]=[];
-    for(const num of arr){
-        if(func(num)){
-            newArray.push(num);
-        }
-    }
-    return newArray;
-    }
+//     }
+//     export function myFilter(arr:number[], func:(num:number)=>number):number[] {
+//     //IMPLEMENTATION NEEDED
+//     const newArray:number[]=[];
+//     for(const num of arr){
+//         if(func(num)){
+//             newArray.push(num);
+//         }
+//     }
+//     return newArray;
+//     }
 
-/**
- * 
- * @param {*} arr 
- * @param {*} func 
- * @param {*} initialValue 
- * @returns 
- */
+// /**
+//  * 
+//  * @param {*} arr 
+//  * @param {*} func 
+//  * @param {*} initialValue 
+//  * @returns 
+//  */
 
-function mutiply(NUm1:number, num2:number):number{
-    return NUm1*num2;
+// function mutiply(NUm1:number, num2:number):number{
+//     return NUm1*num2;
 
-}
+// }
 
-export function myReduce(arr:number[], func:(accumulator:number,num:number)=>number, initialValue:number):number {
-    //IMPLEMENTATION NEEDED
-        for(const num of arr){
-            initialValue=func(initialValue,num);
-        }
-    return initialValue ;
-    }
+// export function myReduce(arr:number[], func:(accumulator:number,num:number)=>number, initialValue:number):number {
+//     //IMPLEMENTATION NEEDED
+//         for(const num of arr){
+//             initialValue=func(initialValue,num);
+//         }
+//     return initialValue ;
+//     }
 
 
-    //A function for recursively printing even numbers
+//     //A function for recursively printing even numbers
 
-    function evenRecurse(number: number): void {
-        if (number >= 0) {
-            if (number % 2 === 0) {
-                console.log(number);
-            }
-            evenRecurse(number - 2);
-        }
-    }
+//     function evenRecurse(number: number): void {
+//         if (number >= 0) {
+//             if (number % 2 === 0) {
+//                 console.log(number);
+//             }
+//             evenRecurse(number - 2);
+//         }
+//     }
     
-    // Test the function
-    evenRecurse(7);
+//     // Test the function
+//     evenRecurse(7);
 
 // Write your own version of map. Write a function, myMap that takes 2 arguments, an array and 
 // a function to apply to the array. It should return a new array of the same size with the function 
@@ -137,3 +137,70 @@ export function myReduce(arr:number[], func:(accumulator:number,num:number)=>num
 //     return num.reduce((total,num)=>total*num,1);
 // }
 // console.log("Expect 10:",myReduce([1,2,3,4]));
+
+
+/**
+ *
+ * @param {Array} arr
+ * @param {Function} func
+ * @returns {Array} returns a new element after the application of the function
+ */
+type MapFunc<T, U> = (currentValue: T, Index?: number, array?: T[]) => U;
+export function myMap<T, U>(arr: T[], func: MapFunc<T, U>): U[] {
+  const newArr: U[] = [];
+  for (const currentValue of arr) {
+    newArr.push(func(currentValue, arr.indexOf(currentValue), arr));
+  }
+  return newArr;
+}
+
+/**
+ *
+ * @param {*} arr
+ * @param {*} func
+ * @returns
+ */
+type FilterFunc<T> = (currentValue: T, Index?: number, array?: T[]) => boolean;
+
+export function myFilter<T>(
+  arr: T[],
+  func:FilterFunc<T>
+): T[]{
+  let filteredEl:T[] = [];
+  for (const currentValue of arr) {
+    if (func(currentValue, arr.indexOf(currentValue), arr)) {
+      filteredEl.push(currentValue);
+    }
+  }
+  return filteredEl;
+}
+
+
+/**
+ *
+ * @param {*} arr
+ * @param {*} func
+ * @param {*} initialValue
+ * @returns
+ */
+type ReduceCallback<T, U> = (accumulator: U, currentValue: T, currentIndex: number, array: T[]) => U;
+export function myReduce<T, U>(arr: T[], func: ReduceCallback<T, U>, initialValue: U): U {
+    let accumulator: U = initialValue;
+
+    for (const currentValue of arr) {
+        accumulator = func(accumulator, currentValue, arr.indexOf(currentValue), arr);
+    }
+
+    return accumulator;
+}
+
+
+//making a map method for array of numbers
+
+// function myMapNum(arr:number[], callback:(current:number,index?: number,arr?:number[])=>number):number[]{
+//   let newMap:number[]=[];
+//   for(const ele of arr){
+//     newMap.push(callback(ele))
+//   }
+//   return newMap;
+// }

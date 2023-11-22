@@ -50,43 +50,111 @@ The answer arrays might not have the questions in the same order.  Write a funct
 
 // };
 
-export const quiz = {} as {
-    students: { sid: number; answers: { qid: number; ans: string }[] }[];
-    key: { qid: number; ans: string }[];
-  };
+// export const quiz = {} as {
+//     students: { sid: number; answers: { qid: number; ans: string }[] }[];
+//     key: { qid: number; ans: string }[];
+//   };
   
-  // Assigning values to quiz.students and quiz.key
-  quiz.students = [
-    { sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
-    { sid: 11, answers: [{ qid: 1, ans: "e" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }] },
-    { sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] },
-  ];
+//   // Assigning values to quiz.students and quiz.key
+//   quiz.students = [
+//     { sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
+//     { sid: 11, answers: [{ qid: 1, ans: "e" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }] },
+//     { sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] },
+//   ];
   
-  quiz.key = [
-    { qid: 1, ans: "b" },
-    { qid: 2, ans: "a" },
-    { qid: 3, ans: "b" },
-  ];
+//   quiz.key = [
+//     { qid: 1, ans: "b" },
+//     { qid: 2, ans: "a" },
+//     { qid: 3, ans: "b" },
+//   ];
   
-  function answerComparator(ans1: { qid: number; ans: string }, ans2: { qid: number; ans: string }): number {
-    return ans1.qid - ans2.qid;
+//   function answerComparator(ans1: { qid: number; ans: string }, ans2: { qid: number; ans: string }): number {
+//     return ans1.qid - ans2.qid;
+//   }
+  
+//   quiz.scoreStudent = function (sid: number): number {
+//     const student = quiz.students.find((student) => student.sid === sid);
+  
+//     if (!student) return 0;
+  
+//     const sortedStudentAnswers = [...student.answers].sort(answerComparator);
+//     const sortedKeyAnswers = [...quiz.key].sort(answerComparator);
+  
+//     return sortedStudentAnswers.reduce((score, ans, index) => {
+//       return score + (ans.ans === sortedKeyAnswers[index].ans ? 1 : 0);
+//     }, 0);
+//   };
+  
+//   quiz.getAverage = function (): number {
+//     const totalScore = quiz.students.reduce((acc, student) => acc + quiz.scoreStudent(student.sid), 0);
+//     return totalScore / quiz.students.length || 0;
+//   };
+  
+type Answers ={
+  qid:number,
+  ans:string
+}  
+type Students ={
+  sid:number,
+  answers:Answers[]
+}
+type StudentScore = {
+  students:Students[],
+  key: Answers[],
+  scoreStudent: (sid:number) => number,
+  getAverage: () => number
+};
+export const quiz = {} as StudentScore;
+quiz.students = [{ sid: 10, answers: [{ qid: 2, ans: "b" }, { qid: 3, ans: "a" }, { qid: 1, ans: "b" }] },
+{ sid: 11, answers: [{ qid: 1, ans: "e" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }] },
+{ sid: 12, answers: [{ qid: 3, ans: "b" }, { qid: 2, ans: "a" }, { qid: 1, ans: "d" }] }];
+quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
+
+/**
+* 
+* @param {Object} ans1 is an answer object
+* @param {Object} ans2 is an answer object 
+* @returns {number} difference of the identifiers
+*/
+// function answerComparator(StudentAns:Key, correctAns:Key):boolean {
+  
+// }
+
+/**
+* 
+* @param {*} sid student id
+* @returns {number} score for student
+* find this student
+* sort the student answers
+* compare them against key and add up matches
+*/
+quiz.scoreStudent = function (sid:number):number {
+  this.key.sort((a,b)=> a.qid - b.qid);
+
+  let score = this.students.reduce((total, current)=>{
+      current.answers.sort((a,b)=>a.qid - b.qid)
+      if(current.sid === sid){
+          let studAns = current.answers;
+          for(let i =0; i < studAns.length; i++){
+              if(studAns[i].ans === this.key[i].ans){
+                  total += 1;
+              }
+          }   
+      }
+      return total;
+  },0)
+  return score;
+};
+
+/**
+* @returns {number} average score of all students
+* go through list of students and get score of each, then the average
+*/
+quiz.getAverage = function():number{
+  let totalScore =0;
+  for(const stud of this.students){
+      totalScore += (this.scoreStudent(stud.sid));
   }
-  
-  quiz.scoreStudent = function (sid: number): number {
-    const student = quiz.students.find((student) => student.sid === sid);
-  
-    if (!student) return 0;
-  
-    const sortedStudentAnswers = [...student.answers].sort(answerComparator);
-    const sortedKeyAnswers = [...quiz.key].sort(answerComparator);
-  
-    return sortedStudentAnswers.reduce((score, ans, index) => {
-      return score + (ans.ans === sortedKeyAnswers[index].ans ? 1 : 0);
-    }, 0);
-  };
-  
-  quiz.getAverage = function (): number {
-    const totalScore = quiz.students.reduce((acc, student) => acc + quiz.scoreStudent(student.sid), 0);
-    return totalScore / quiz.students.length || 0;
-  };
-  
+  return totalScore/this.students.length;
+
+};
