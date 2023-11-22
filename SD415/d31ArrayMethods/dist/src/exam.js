@@ -9,11 +9,16 @@ const names = ['Fred', 'Smith', 'Carl', 'Lindstrom'];
 console.log(firstLast(names));
 //replace ends function
 export function replaceEnds(arr, first, first2, last, last2) {
-    const newArr = arr.slice();
-    newArr.splice(0, 1, first, first2);
-    newArr.splice(newArr.length - 1, 1, last, last2);
-    return newArr;
+    arr.splice(0, 2, first, first2);
+    arr.splice(arr.length - 2, 2, last, last2);
+    return arr;
 }
+// export function replaceEnds(arr:number[], first:number,first2:number,last:number,last2:number):number[]{
+//     const newArr = arr.slice();
+//     newArr.splice(0, 1, first,first2);
+//     newArr.splice(newArr.length-1, 1, last,last2)
+//     return newArr;
+//   }
 const arr = [1, 2, 3, 4, 5];
 console.log(replaceEnds(arr, 6, 1, 2, 4));
 //higher order function

@@ -3,43 +3,65 @@ Write a function filterRange(arr, a, b) that gets an array arr, looks for elemen
 The function should not modify the array. It should return the new array.
 */
 export function filterRange(arr, a, b) {
-    return [];
+    return arr.filter(num => num >= a && num <= b);
 }
 /*
 Write a function filterRangeInPlace(arr, a, b) that gets an array arr and removes from it all values except those that are between a and b. The test is: a ≤ arr[i] ≤ b.
 The function should only modify the array. It should not return anything.
 */
 export function filterRangeInPlace(arr, a, b) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < a || arr[i] > b) {
+            arr.splice(i, 1);
+            i--;
+        }
+    }
 }
 export const calculator = {
     methods: {
         "-": (a, b) => a - b,
         "+": (a, b) => a + b,
     },
+    calculate: function (str) {
+        const tokens = str.split(' ');
+        const operator = tokens[1];
+        const a = parseFloat(tokens[0]);
+        const b = parseFloat(tokens[2]);
+        if (isNaN(a) || isNaN(b) || !this.methods[operator]) {
+            return NaN; // Invalid input
+        }
+        return this.methods[operator](a, b);
+    },
+    addMethod: function (name, func) {
+        this.methods[name] = func;
+    },
 };
 export function unique(arr) {
-    return [];
+    return Array.from(new Set(arr));
 }
 export function groupById(users) {
     // declare usersById to be an object with string keys and User values
     const usersById = {};
-    // FURTHER IMPLEMENTATION REQUIRED HERE
+    // FURTHER IMPLEMENTATION REQUIRED HERE 
+    for (const user of users) {
+        usersById[user.id] = user;
+    }
     return usersById;
 }
 export function map2fullName(users) {
-    let result = [];
-    // FURTHER IMPLEMENTATION REQUIRED HERE
-    return result;
+    return users.map(user => ({
+        fullName: `${user.name} ${user.surname}`,
+        id: user.id
+    }));
 }
 export function sortByAge(users) {
-    // FURTHER IMPLEMENTATION REQUIRED HERE
+    users.sort((a, b) => a.age - b.age);
 }
 export function findOldest(users) {
-    let oldest = users[0];
-    // FURTHER IMPLEMENTATION REQUIRED HERE
-    return oldest;
+    return users.reduce((oldest, user) => (user.age > oldest.age ? user : oldest), users[0]);
 }
 /* getAverageAge using reduce */
 export function getAverageAge(users) {
-    return 0;
+    const totalAge = users.reduce((sum, user) => sum + user.age, 0);
+    return totalAge / users.length;
 }

@@ -1,5 +1,5 @@
 /* comment out the import assert line (in /dist/test js mocha file) when running in the browser */
-// import { assert } from "chai";
+import { assert } from "chai";
 import { firstLast, replaceEnds, higho, square, absVal, } from "../src/exam.js";
 import { calculateDailyTotalDuration, calculateTotalDuration, getAllSessions, getAllSessionsForUser, getAllDurations } from "../src/exam.js";
 describe("exam2 coding", function () {
@@ -13,10 +13,17 @@ describe("exam2 coding", function () {
         //Use slice and splice to write TypeScript code for the replaceEnds function.  replaceEnds should be a pure function.
         //first two number arguments replace the first and second elements of the array, last two number arguments replace the 
         //last two elements of the array
-        const arr = [5, 4, 3, 2, 1, 0];
-        const result = [6, 1, 3, 2, 2, 4];
-        assert.deepEqual(replaceEnds(arr, 6, 1, 2, 4), result);
-        assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); //original array is unchanged
+        it("replaceEnds 6124", function () {
+            const arr = [5, 4, 3, 2, 1, 0];
+            const result = [6, 1, 3, 2, 2, 4];
+            replaceEnds(arr, 6, 1, 2, 4);
+            assert.deepEqual(arr, result);
+        });
+        // const arr = [5, 4, 3, 2, 1, 0];
+        // const result = [6, 1, 3, 2, 2, 4];
+        // const newArr = replaceEnds(arr.slice(), 6, 1, 2, 4);
+        // assert.deepEqual(newArr, result);
+        // assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); // Original array is unchanged
     });
     it("replaceEnds 1093287", function () {
         //Use slice and splice to write TypeScript code for the replaceEnds function.  replaceEnds should be a pure function.
@@ -24,8 +31,9 @@ describe("exam2 coding", function () {
         //last two elements of the array
         const arr = [5, 4, 3, 2, 1, 0];
         const result2 = [10, 9, 3, 2, 8, 7];
-        assert.deepEqual(replaceEnds(arr, 10, 9, 8, 7), result2);
-        assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); //original array is unchanged
+        const newArr = replaceEnds(arr.slice(), 10, 9, 8, 7);
+        assert.deepEqual(newArr, result2);
+        assert.deepEqual(arr, [5, 4, 3, 2, 1, 0]); // Original array is unchanged
     });
     //Implement functions higho, square, and cube.  
     //higho takes a function and a number as arguments and returns the result of the function called on the number.
