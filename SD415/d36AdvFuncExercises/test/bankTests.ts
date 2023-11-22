@@ -11,7 +11,8 @@ describe("bank tests", function () {
     });
 
     it("transactionsDB is private", function () {
-        assert.strictEqual(bank.transactionsDB in bank, false);
+        const bankProps = Object.keys(bank);
+        assert.strictEqual(bankProps.find(prop => prop === "transactionsDB"), undefined);
     });
 });
 

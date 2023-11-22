@@ -819,33 +819,35 @@ function averagePointsLabeled(players: Player[]): { [key: string]: number }[] {
 }
 
 // Test
-const player1 = { name: "Bob", points: [1, 2, 1] };
-const player2 = { name: "Andre", points: [2, 0, 1] };
-const player3 = { name: "Max", points: [1, 1, 1] };
-const players = [player1, player2, player3];
+// const player1 = { name: "Bob", points: [1, 2, 1] };
+// const player2 = { name: "Andre", points: [2, 0, 1] };
+// const player3 = { name: "Max", points: [1, 1, 1] };
+// const players = [player1, player2, player3];
 
-console.log("Expect [{Bob: 1.33, Andre: 1, Max: 1}]:", averagePointsLabeled(players));
-
-
-type Player = {
-  name: string;
-  points: number[];
-};
-
-function averagePointsLabeled(players: Player[]): { [key: string]: number }[] {
-  return players.map((player) => {
-    const totalPoints = player.points.reduce((acc, points) => acc + points, 0);
-    const average = totalPoints / player.points.length;
-    return { [player.name]: average };
-  });
-}
-
-// Test
-const player1 = { name: "Bob", points: [1, 2, 1] };
-const player2 = { name: "Andre", points: [2, 0, 1] };
-const player3 = { name: "Max", points: [1, 1, 1] };
-const players = [player1, player2, player3];
-
-console.log("Expect [{Bob: 1.33, Andre: 1, Max: 1}]:", averagePointsLabeled(players));
+// console.log("Expect [{Bob: 1.33, Andre: 1, Max: 1}]:", averagePointsLabeled(players));
 
 
+// type Player = {
+//   name: string;
+//   points: number[];
+// };
+
+// function averagePointsLabeled(players: Player[]): { [key: string]: number }[] {
+//   return players.map((player) => {
+//     const totalPoints = player.points.reduce((acc, points) => acc + points, 0);
+//     const average = totalPoints / player.points.length;
+//     return { [player.name]: average };
+//   });
+// }
+
+// // Test
+// const player1 = { name: "Bob", points: [1, 2, 1] };
+// const player2 = { name: "Andre", points: [2, 0, 1] };
+// const player3 = { name: "Max", points: [1, 1, 1] };
+// const players = [player1, player2, player3];
+
+// console.log("Expect [{Bob: 1.33, Andre: 1, Max: 1}]:", averagePointsLabeled(players));
+
+
+let lengths = ["Bilbo", "Gandalf", "Nazgul"]
+let result= lengths.map((index, item) => `${index}: ${item.length}`);

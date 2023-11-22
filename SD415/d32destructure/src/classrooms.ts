@@ -90,6 +90,7 @@ function collectRoomsAndCapacities(): string[] {
   );
 }
 
+
 // 3.	Write a function collectLabeledRoomCaps to return room numbers and capacities in this object
 // format [{roomNumber: 101, capacity: 30} , …  ]
 function collectLabeledRoomCaps(): Room[] {
