@@ -28,10 +28,10 @@ export function myReduce(arr, func, initialValue) {
     return accumulator;
 }
 //making a map method for array of numbers
-function myMapNum(arr, callback) {
-    let newMap = [];
-    for (const ele of arr) {
-        newMap.push(callback(ele));
-    }
-    return newMap;
-}
+// function myMapNum(arr:number[], callback:(current:number,index?: number,arr?:number[])=>number):number[]{
+//   let newMap:number[]=[];
+//   for(const ele of arr){
+//     newMap.push(callback(ele))
+//   }
+//   return newMap;
+// }

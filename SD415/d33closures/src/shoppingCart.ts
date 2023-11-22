@@ -13,36 +13,56 @@ type Item = {
     item: string;
     price: number;
 }
-
 type Cart = {
-    addItem: (item: string, price: number) => void;
-    removeItem: (item: string) => void;
-    getTotal: () => number;
+  addItem: (item: string, price: number) => void;
+  removeItem: (item: string) => void;
+  getTotal: () => number;
+};
+
+export function createShoppingCart(): Cart {
+  let items: Item[] = [];
+
+  return {
+    addItem: function (item: string, price: number) {
+      items.push({ item:item, price:price });
+    },
+
+    removeItem: function (item: string) {
+      const index = items.findIndex((i) => i.item === item);
+      if (index !== -1) {
+        items.splice(index, 1);
+      }
+    },
+
+    getTotal: function () {
+      return items.reduce((total, item) => total + item.price, 0);
+    },
+  };
 }
 
-export function createShoppingCart():  Cart {
- //IMPLEMENT THIS FUNCTION
+// export function createShoppingCart():  Cart {
+//  //IMPLEMENT THIS FUNCTION
 
-    const cart: Item[] = [];
+//     const cart: Item[] = [];
   
-    return {
-      addItem: (item: string, price: number) => {
-        const newItem: Item = { item, price };
-        cart.push(newItem);
-        console.log(`${item} added to the cart.`);
-      },
-      removeItem: (item: string) => {
-        const index = cart.findIndex((cartItem) => cartItem.item === item);
-        if (index !== -1) {
-          cart.splice(index, 1);
-          console.log(`${item} removed from the cart.`);
-        } else {
-          console.log(`${item} not found in the cart.`);
-        }
-      },
-      getTotal: () => {
-        const total = cart.reduce((acc, item) => acc + item.price, 0);
-        return total;
-      },
-    };
-  }
+//     return {
+//       addItem: (item: string, price: number) => {
+//         const newItem: Item = { item, price };
+//         cart.push(newItem);
+//         console.log(`${item} added to the cart.`);
+//       },
+//       removeItem: (item: string) => {
+//         const index = cart.findIndex((cartItem) => cartItem.item === item);
+//         if (index !== -1) {
+//           cart.splice(index, 1);
+//           console.log(`${item} removed from the cart.`);
+//         } else {
+//           console.log(`${item} not found in the cart.`);
+//         }
+//       },
+//       getTotal: () => {
+//         const total = cart.reduce((acc, item) => acc + item.price, 0);
+//         return total;
+//       },
+//     };
+//   }
