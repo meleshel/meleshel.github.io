@@ -34,29 +34,79 @@ quiz.key = [{ qid: 1, ans: "b" }, { qid: 2, ans: "a" }, { qid: 3, ans: "b" }];
  * @param {Object} ans2 is an answer object 
  * @returns {number} difference of the identifiers
  */
-function answerComparator(ans1, ans2) {
-//IMPLEMENT THIS
-}
 
-/**
- * 
- * @param {*} sid student id
- * @returns {number} score for student
- * find this student
- * sort the student answers
- * compare them against key and add up matches
- */
-quiz.scoreStudent = function (sid) {
-//IMPLEMENT THIS
-};
+quiz.answerComparator = function (ans1, ans2) {
+    return ans1.qid - ans2.qid;
+  };
+  
+  /**
+   * 
+   * @param {*} sid student id
+   * @returns {number} score for student
+   * find this student
+   * sort the student answers
+   * compare them against key and add up matches
+   */
+  quiz.scoreStudent = function (sid) {
+    const student = quiz.students.find((s) => s.sid === sid);
+  
+    if (!student) {
+      return 0; // Student not found
+    }
+  
+    const sortedStudentAnswers = [...student.answers].sort(quiz.answerComparator);
+    const sortedKey = [...quiz.key].sort(quiz.answerComparator);
+  
+    let score = 0;
+  
+    for (let i = 0; i < sortedStudentAnswers.length; i++) {
+      if (sortedStudentAnswers[i].ans === sortedKey[i].ans) {
+        score++;
+      }
+    }
+  
+    return score;
+  };
+  
+  /**
+   * @returns {number} average score of all students
+   * go through list of students and get score of each, then the average
+   */
+  quiz.getAverage = function () {
+    if (quiz.students.length === 0) {
+      return 0; // No students in the quiz
+    }
+  
+    const totalScores = quiz.students.reduce((total, student) => {
+      const score = quiz.scoreStudent(student.sid);
+      return total + score;
+    }, 0);
+  
+    return totalScores / quiz.students.length;
+  };
+// function answerComparator(ans1, ans2) {
+// //IMPLEMENT THIS
+// }
 
-/**
- * @returns {number} average score of all students
- * go through list of students and get score of each, then the average
- */
-quiz.getAverage = function(){
-//IMPLEMENT THIS
+// /**
+//  * 
+//  * @param {*} sid student id
+//  * @returns {number} score for student
+//  * find this student
+//  * sort the student answers
+//  * compare them against key and add up matches
+//  */
+// quiz.scoreStudent = function (sid) {
+// //IMPLEMENT THIS
+// };
 
-};
+// /**
+//  * @returns {number} average score of all students
+//  * go through list of students and get score of each, then the average
+//  */
+// quiz.getAverage = function(){
+// //IMPLEMENT THIS
+
+// };
 
 
