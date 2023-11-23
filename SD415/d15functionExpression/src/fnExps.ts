@@ -26,13 +26,26 @@ export function times100(number: number) {
 /**
  * @returns {Array} creates a new array with function mapped to each element
  */
-export function myMap( arr:number[], fun:(num:number)=>number):number[]{
+
+export function myMap(
+  arr: number[],
+  callback: (num: number) => number
+): number[] {
+  let newArr = [];
+  for (const ele of arr) {
+    let newValue = callback(ele);
+    newArr.push(newValue);
+  }
+  return newArr;
+}
+// export function myMap( arr:number[], fun:(num:number)=>number):number[]{
  
-    return arr.map(element=> fun(element));
+//     return arr.map(element=> fun(element));
 
 
     
-}
+// }
+
  export let inputArr = [1,2,3,4,5]
  export let inputArr2 = [11,12,13]
   let doubleArr= myMap(inputArr, double)
