@@ -11,7 +11,7 @@
 //         assert.strictEqual(bankProps.find(prop => prop === "transactionsDB"), undefined);
 //     });
 // });
-import { assert } from "chai";
+// import { assert } from "chai";
 import { makeBank } from "../src/bank.js";
 describe("bank tests", function () {
     const bank = makeBank();

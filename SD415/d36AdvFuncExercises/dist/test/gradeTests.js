@@ -15,7 +15,7 @@
 //         assert.strictEqual(Number(quiz.getAverage().toFixed(3)), 1.667);
 //     });
 // });
-import { assert } from "chai";
+// import { assert } from "chai";
 import { quiz } from "../src/grades.js";
 describe("grades from quiz", function () {
     it("scoreStudent 10", function () {
